@@ -73,3 +73,84 @@ img {
  * YOUR CODE HERE
  */
 
+body {
+    background-color: #efefeb;
+
+    #container {
+        max-height: 100%;
+
+        #header {
+            height: 80px;
+            border-bottom: 1px solid gray;
+            position: relative;
+
+            #logo, input, #search {
+                display: inline-block;
+            }
+
+            #logo {
+                padding-left: 3rem;
+                color: #f56400;
+                font-family: Times, Arial, sans-serif;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            #search {
+                background-color: #4fa9c6;
+                color: white;
+            }
+        }
+
+        #listings .items {
+            position: relative;
+            display: inline-block;
+            margin: 1rem 3rem 1rem 3rem;
+            padding: .5rem;
+            border: 1px solid gray;
+            border-radius: 2%;
+            background-color: #ffffff;
+            height: 300px;
+            width: 300px;
+        }
+
+        #listings .items img {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+        }
+        
+        .items:hover {
+            cursor: pointer;
+        }
+
+        #listings .items .title {
+            position: absolute;
+            top: 76%;
+        }
+
+        #listings .items .price {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translateX(-70%);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

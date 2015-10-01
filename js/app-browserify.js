@@ -84,7 +84,7 @@ var DetailView = Backbone.View.extend ({
 var EtsyRouter = Backbone.Router.extend ({
 	routes: {
 
-		"*anyquery": "showDetailView"
+		"*anyquery": "showHomeView"
 	},
 
 	fetcher: function() {

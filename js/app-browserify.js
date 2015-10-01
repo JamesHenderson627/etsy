@@ -58,8 +58,8 @@ var HomeView = Backbone.View.extend({
 		var listingsArray = this.model.attributes.results,
 			htmlString = "",
 			self = this
-		listingssArray.forEach(function(listing){
-			console.log(img)
+		listingsArray.forEach(function(listing){
+			console.log(listings)
 			htmlString += `<div class="items">\
 								<img src=${self.getImage(listing.MainImage)}>\
 								<h5 class="title">${self.getTitle(listing.title)}</h5>\

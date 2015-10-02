@@ -49,7 +49,7 @@ var HomeView = Backbone.View.extend({
 	el: "#listings",
 
 	events: {
-		"click input": "getNewView"
+		"click input": "getNewView",
 		"click img": "getDetailView"
 	},
 
@@ -84,19 +84,11 @@ var HomeView = Backbone.View.extend({
 			htmlString = "",
 			self = this
 		listingsArray.forEach(function(listing){
-<<<<<<< HEAD
 			console.log(listings)
 			htmlString += `<div class="items">
 								<img data-id=${listing.listing_id} src=${self.getImage(listing.MainImage)}>
 								<h5 class="title">${self.getTitle(listing.title)}</h5>
 								<p class="price">\$${listing.price} ${listing.currency_code}</p>
-=======
-			console.log(listing)
-			htmlString += `<div class="items">\
-								<img src=${self.getImage(listing.MainImage)}>\
-								<h5 class="title">${self.getTitle(listing.title)}</h5>\
-								<p class="price">\$${listing.price} ${listing.currency_code}</p>\
->>>>>>> master
 							</div>`
 		})
 		this.$el.html(`${htmlString}`)
@@ -136,12 +128,8 @@ var DetailView = Backbone.View.extend ({
 
 var EtsyRouter = Backbone.Router.extend ({
 	routes: {
-<<<<<<< HEAD
 		"listings/:listing_id":"showDetailView",
-		"*anyquery": "showHomeView"
-=======
-
-		"*anyquery": "showHomeView"
+		"*anyquery": "showHomeView",
 	},
 
 	fetcher: function() {
@@ -149,7 +137,6 @@ var EtsyRouter = Backbone.Router.extend ({
 			dataType: "jsonp",
 			processData: true
 		})
->>>>>>> master
 	},
 
 	showHomeView: function() {

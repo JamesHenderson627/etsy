@@ -103,7 +103,7 @@ body {
                 color: white;
             }
         }
-
+/* ============HOME VIEW=============== */
         #listings .items {
             position: relative;
             display: inline-block;
@@ -140,6 +140,48 @@ body {
         }
     }
 }
+
+/* ================DETAIL VIEW================ */
+
+#singleListing { 
+    border: 2px solid #AD5C33;
+    margin: 0 auto;
+    max-width: 60%;
+    border-radius: 5%;
+}
+#title {
+    margin: 1rem;
+}
+
+h4 {
+    margin: 1rem 1rem 0 1rem;
+}
+
+#description {
+    margin: .5rem 1rem 1rem 1.5rem;
+    padding: .5rem;
+    border: 1px dashed gray;
+    background-color: white; 
+}
+
+#pic {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+#price {
+    display: inline-block;
+    font-size: 25px;
+}
+
+#views {
+    display: inline-block;
+    font-size: 25px;
+}
+
+
+
 
 
 

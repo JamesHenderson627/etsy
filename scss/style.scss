@@ -84,7 +84,7 @@ body {
             border-bottom: 1px solid gray;
             position: relative;
 
-            #logo, input, #search {
+            #logo, input {
                 display: inline-block;
             }
 
@@ -97,14 +97,9 @@ body {
             input:focus {
                 outline: none;
             }
-
-            #search {
-                background-color: #4fa9c6;
-                color: white;
-            }
         }
 /* ============HOME VIEW=============== */
-        #listings .items {
+        #listingView .items {
             position: relative;
             display: inline-block;
             margin: 1rem 3rem 1rem 3rem;
@@ -116,7 +111,7 @@ body {
             width: 300px;
         }
 
-        #listings .items img {
+        #listingView .items img {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -127,12 +122,14 @@ body {
             cursor: pointer;
         }
 
-        #listings .items .title {
+        #listingView .items .title {
             position: absolute;
             top: 76%;
+            font-size: .75rem;
+            font-weight: bold;
         }
 
-        #listings .items .price {
+        #listingView .items .price {
             position: absolute;
             top: 90%;
             left: 50%;

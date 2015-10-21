@@ -1,4 +1,5 @@
-var React = require('react')
+var React = require('react'),
+	Parse = require('parse')
 
 var MainView = React.createClass({
 	componentDidMount: function() {
@@ -25,7 +26,7 @@ var Header = React.createClass({
 	},
 
 	_goToFavs: function() {
-		location.hash = "favorites/"
+		location.hash = "favorites"
 		console.log("Going to favorites")
 	},
 
@@ -81,7 +82,10 @@ var SingleListing = React.createClass({
 
 	_addToFavorites: function() {
 		console.log("Favorite clicked")
-		var listingId = this.props.listingInfo.attributes.listing_id
+		var favObj = new Parse.Object("Favorite")
+		favObj.save().then(function(){
+			alert("Added to Favorites!")
+		})
 	},
 
 	render: function() {
@@ -89,10 +93,10 @@ var SingleListing = React.createClass({
 			listingTitle = this.props.listingInfo.attributes.title,
 			listingPrice = "$" + this.props.listingInfo.attributes.price
 		return (
-			<div className="items" onClick={this._getSingleView}>
+			<div className="items">
 				<button type="button" className="favorite"onClick={this._addToFavorites}><i className="fa fa-heart-o"></i></button>
 				<img src={listingImg} />
-				<h5 className="title">{listingTitle}</h5>
+				<h5 className="title" onClick={this._getSingleView}>{listingTitle}</h5>
 				<p className="price">{listingPrice}</p>
 			</div>
 			)

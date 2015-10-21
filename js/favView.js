@@ -36,5 +36,13 @@ var Header = React.createClass({
 	}
 })
 
+var FavGrid = React.createClass({
+	render: function() {
+		return(
+			<div></div>
+			)
+	}
+})
+
 export default FavView
 

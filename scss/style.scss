@@ -135,6 +135,7 @@ body {
         #listingView .favorite {
             position: absolute;
             text-align: center;
+            cursor: pointer;
             right: 5%;
             z-index: 1;
             height: 50px;
@@ -150,16 +151,18 @@ body {
             font-weight: bold;
             margin-top: 2px;
         }
-        
-        .items:hover {
-            cursor: pointer;
-        }
 
         #listingView .items .title {
             position: absolute;
             top: 76%;
             font-size: .75rem;
             font-weight: bold;
+        }
+
+        #listingView .items .title:hover {
+            text-decoration: underline;
+            cursor: pointer;
+
         }
 
         #listingView .items .price {

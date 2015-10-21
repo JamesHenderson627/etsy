@@ -36,7 +36,7 @@ var EtsyCollection = Backbone.Collection.extend({
 })
 
 var FavCollection = Backbone.Collection.extend({
-	url: "https://api.parse.com/1/classes/Favorite",
+	url: "https://api.parse.com/1/classes/favorites",
 
 	parseHeaders: {
 		"X-Parse-Application-Id": APP_ID,
@@ -46,8 +46,8 @@ var FavCollection = Backbone.Collection.extend({
 	model: FavModel,
 
 	parse: function() {
-		console.log(responseData.results)
-		return responseData.results
+		console.log(responseData)
+		return responseData
 	}
 })
 
@@ -60,12 +60,12 @@ var SingleModel = Backbone.Model.extend({
 	
 	parse: function(responseData){
 		console.log(responseData)
-		return responseData
+		return responseData.results[0]
 	}
 })
 
 var FavModel = Backbone.Model.extend({
-	url: "https://api.parse.com/1/classes/Favorite",
+	url: "https://api.parse.com/1/classes/favorites",
 
 	parseHeaders: {
 		"X-Parse-Application-Id": APP_ID,
@@ -130,8 +130,8 @@ var EtsyRouter = Backbone.Router.extend ({
 		console.log(this.sm)
 	},
 
-	showFavorites: function() {
-		React.render(<FavView favListings={this.fc} />,document.querySelector("#container"))
+	showFavorites: function(responseData) {
+		React.render(<FavView favListings={responseData} />,document.querySelector("#container"))
 	},
 
 	initialize: function() {

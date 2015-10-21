@@ -19,9 +19,14 @@ var Header = React.createClass({
 	_handleKeyPress: function() {
 		if (event.keyCode === 13) {
 			console.log('------',event)
-			location.hash = `listings/${event.target.value}`
+			location.hash = `search/${event.target.value}`
 			event.target.value = ""
 		}
+	},
+
+	_goToFavs: function() {
+		location.hash = "favorites/"
+		console.log("Going to favorites")
 	},
 
 	render: function() {
@@ -29,6 +34,7 @@ var Header = React.createClass({
 			<div id="header">
 				<h3 id="logo">Etsy</h3>
     			<input type="text" onKeyPress={this._handleKeyPress} placeholder="Search for items or shops"/>
+    			<h4 id="favs" onClick={this._goToFavs}>Favorites</h4>
 			</div>
 			)
 	}
@@ -66,12 +72,16 @@ var SingleListing = React.createClass({
 		}
 	},
 
-	_clickHandler: function() {
+	_getSingleView: function() {
 		console.log("Clicked!!")
 		var listingId = this.props.listingInfo.attributes.listing_id
 		location.hash = `listings/${listingId}`
-		console.log("changing to DetailView")
+		console.log("changing to SinglelView")
+	},
 
+	_addToFavorites: function() {
+		console.log("Favorite clicked")
+		var listingId = this.props.listingInfo.attributes.listing_id
 	},
 
 	render: function() {
@@ -79,7 +89,8 @@ var SingleListing = React.createClass({
 			listingTitle = this.props.listingInfo.attributes.title,
 			listingPrice = "$" + this.props.listingInfo.attributes.price
 		return (
-			<div className="items" onClick={this._clickHandler} >
+			<div className="items" onClick={this._getSingleView}>
+				<button type="button" className="favorite"onClick={this._addToFavorites}><i className="fa fa-heart-o"></i></button>
 				<img src={listingImg} />
 				<h5 className="title">{listingTitle}</h5>
 				<p className="price">{listingPrice}</p>
@@ -89,3 +100,5 @@ var SingleListing = React.createClass({
 })
 
 export default MainView
+
+

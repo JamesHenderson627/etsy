@@ -92,10 +92,24 @@ body {
                 padding-left: 3rem;
                 color: #f56400;
                 font-family: Times, Arial, sans-serif;
+                margin-top: 15px;
+            }
+
+            input {
+                margin-left: 10px;
             }
 
             input:focus {
                 outline: none;
+            }
+
+            #favs { 
+                display: inline-block;
+                float: right;
+            }
+            #favs:hover {
+                text-decoration: underline;
+                cursor: pointer;
             }
         }
 /* ============HOME VIEW=============== */
@@ -116,6 +130,25 @@ body {
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
+        }
+
+        #listingView .favorite {
+            position: absolute;
+            text-align: center;
+            right: 5%;
+            z-index: 1;
+            height: 50px;
+            width: 50px;
+            background-color: #636363;
+            opacity: .85;
+        }
+
+        #listingView i {
+            margin-left: -1.5px;
+            color: #FF5C5C;
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 2px;
         }
         
         .items:hover {
@@ -138,7 +171,7 @@ body {
     }
 }
 
-/* ================DETAIL VIEW================ */
+/* ================SINGLE VIEW================ */
 
 #singleListing { 
     border: 2px solid #AD5C33;

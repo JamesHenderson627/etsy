@@ -11,9 +11,7 @@ var $ = require('jquery'),
 console.log('loaded javascript')
 
 import MainView from "./mainView.js"
-
 import SingleView from "./singleView.js"
-
 import FavView from "./favView.js"
 
 //====================KEYS===============
@@ -76,7 +74,7 @@ var FavModel = Backbone.Model.extend({
 // // =================CONTROLLER==================
 var EtsyRouter = Backbone.Router.extend ({
 	routes: {
-		"favorites": "showFavorites",
+		"favorites/": "showFavorites",
 		"search/:query": "showSearch",
 		"listings/:listing_id": "showSingleView",
 		"*anyquery": "showHomeView",
@@ -109,9 +107,8 @@ var EtsyRouter = Backbone.Router.extend ({
 			},
 			dataType: "jsonp",
 			processData: true
-		}).then(function(){
-			React.render(<MainView etsyListings={self.ec} />,document.querySelector("#container"))
 		})
+		React.render(<MainView etsyListings={self.ec} />,document.querySelector("#container"))
 		console.log(this.ec)
 	},
 
@@ -126,19 +123,23 @@ var EtsyRouter = Backbone.Router.extend ({
 			},
 			dataType: "jsonp",
 			processData: true
-		}).then(React.render(<SingleView etsyListing={self.sm} />,document.querySelector("#container")))
+		})
+		React.render(<SingleView singleListing={self.sm} />,document.querySelector("#container"))
 		console.log(this.sm)
 	},
 
-	showFavorites: function(responseData) {
-		React.render(<FavView favListings={responseData} />,document.querySelector("#container"))
+	showFavorites: function(listingId) {
+		var query = new Parse.Query("Favorite")
+		query.find().then(function(response){
+			React.render(<FavView favListings={response} />,document.querySelector("#container"))
+		})
+
 	},
 
 	initialize: function() {
 		this.ec = new EtsyCollection(),
 		this.fc = new FavCollection(),
 		this.sm = new SingleModel(),
-		this.fv = new FavModel()
 		Backbone.history.start()
 	}
 })

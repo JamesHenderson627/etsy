@@ -26,7 +26,7 @@ var Header = React.createClass({
 	},
 
 	_goToFavs: function() {
-		location.hash = "favorites"
+		location.hash = "favorites/"
 		console.log("Going to favorites")
 	},
 
@@ -53,7 +53,7 @@ var GridView = React.createClass({
 	render: function() {
 		var singleListing = this.props.listingsGrid.models
 		return(
-			<div id="listingView">
+			<div className="listingView">
 			{singleListing.map(this._getSingleListing)}
 			</div>
 			)
@@ -61,9 +61,9 @@ var GridView = React.createClass({
 })
 
 var SingleListing = React.createClass({
-	componentDidMount: function() {
-		console.log (this)
-	},
+	// componentDidMount: function() {
+	// 	console.log (this)
+	// },
 
 	_getListingImg: function(){
 		if (this.props.listingInfo.attributes.MainImage.url_170x135 === null) {
@@ -82,7 +82,11 @@ var SingleListing = React.createClass({
 
 	_addToFavorites: function() {
 		console.log("Favorite clicked")
-		var favObj = new Parse.Object("Favorite")
+		var favObj = new Parse.Object("Favorite"),
+			listingObj = this.props.listingInfo.attributes
+		for (var props in listingObj) {
+			favObj.set(props, listingObj[props])
+		}
 		favObj.save().then(function(){
 			alert("Added to Favorites!")
 		})

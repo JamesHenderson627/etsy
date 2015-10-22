@@ -113,7 +113,7 @@ body {
             }
         }
 /* ============HOME VIEW=============== */
-        #listingView .items {
+        .listingView .items {
             position: relative;
             display: inline-block;
             margin: 1rem 3rem 1rem 3rem;
@@ -125,14 +125,14 @@ body {
             width: 300px;
         }
 
-        #listingView .items img {
+        .listingView .items img {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
         }
 
-        #listingView .favorite {
+        .listingView .favorite {
             position: absolute;
             text-align: center;
             cursor: pointer;
@@ -144,7 +144,7 @@ body {
             opacity: .85;
         }
 
-        #listingView i {
+        .listingView i {
             margin-left: -1.5px;
             color: #FF5C5C;
             font-size: 40px;
@@ -152,20 +152,20 @@ body {
             margin-top: 2px;
         }
 
-        #listingView .items .title {
+        .listingView .items .title {
             position: absolute;
             top: 76%;
             font-size: .75rem;
             font-weight: bold;
         }
 
-        #listingView .items .title:hover {
+        .listingView .items .title:hover {
             text-decoration: underline;
             cursor: pointer;
 
         }
 
-        #listingView .items .price {
+        .listingView .items .price {
             position: absolute;
             top: 90%;
             left: 50%;

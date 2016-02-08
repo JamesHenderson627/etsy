@@ -1,5 +1,7 @@
 var React = require('react')
 
+import {Header} from "./mainView.js"
+
 var SingleView = React.createClass({
 	componentDidMount: function() {
 		this.props.singleListing.on("update sync", this.forceUpdate.bind(this))
@@ -15,25 +17,6 @@ var SingleView = React.createClass({
 	}
 })
 
-var Header = React.createClass({
-	_handleKeyPress: function() {
-		if (event.keyCode === 13) {
-			console.log('------',event)
-			location.hash = `search/${event.target.value}`
-			event.target.value = ""
-		}
-	},
-
-	render: function() {
-		return(
-			<div id="header">
-				<h3 id="logo">Etsy</h3>
-    			<input type="text" onKeyPress={this._handleKeyPress} placeholder="Search for items or shops"/>
-			</div>
-			)
-	}
-})
-
 var SingleListing = React.createClass({
 	componentDidMount: function() {
 		console.log(this)
@@ -42,7 +25,7 @@ var SingleListing = React.createClass({
 	render: function(){
 		var	title = this.props.singleItem.attributes.title
 			// image = this.props.singleItem.attributes.MainImage.url_570xN,
-			// console.log(this.props.singleItem.attributes.MainImage.url_570xN)
+			console.log(this.props.singleItem.attributes.MainImage)
 		var	description = this.props.singleItem.attributes.description,
 			price = "$" + this.props.singleItem.attributes.price,
 			views = this.props.singleItem.attributes.views

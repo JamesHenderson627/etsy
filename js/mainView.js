@@ -108,5 +108,6 @@ var SingleListing = React.createClass({
 })
 
 export default MainView
+export {Header}
 
 
